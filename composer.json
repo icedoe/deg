@@ -2,7 +2,7 @@
     "name": "deg/table",    
     "type": "library",
     "description": "Simple html table builder",
-    "keywords": ["html-table", "Anax" "education"],
+    "keywords": ["html-table", "Anax", "education"],
     "license": "MIT",
     "authors": [
         {
