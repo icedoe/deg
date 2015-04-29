@@ -29,8 +29,6 @@ class HTMLtable
  ** @params DI-object								**
  ** @params 2D-array or object-array				**
  **													**
- ** @return null 									**
- **													**
  *****************************************************/
 	public function __construct($di, $table)
 	{
@@ -42,7 +40,7 @@ class HTMLtable
 /*****************************************************
  ** Function getHTML 								**
  **													**
- ** @return HTML-tables								**
+ ** @return HTML-table(s)							**
  **													**
  *****************************************************/
 	public function getHTML()
@@ -81,7 +79,7 @@ class HTMLtable
 	}
 
 /*****************************************************
- ** Function setClass								**
+ ** Function setClass if styling's a thing			**
  **													**
  ** @params string class name						**
  *****************************************************/
@@ -123,7 +121,8 @@ class HTMLtable
 	}
 
 /*****************************************************
- ** Function combineCols							**
+ ** Function combineCols wraps specified column 	**
+ ** values in p-tags								**
  **													**
  ** @params string array -cols to combine			**
  ** @params string name of combined column			**
@@ -163,11 +162,13 @@ class HTMLtable
 	}
 
 	/*****************************************************
-	 ** Function clickableHeaders						**
+	 ** Function clickableHeaders. $column mandatory if **
+	 ** headers are separated.							**
 	 **													**
 	 ** @params string contoller url					**
 	 ** @params string column to append value			**
 	 **													**
+	 ** return mock-bool or void						**
 	 *****************************************************/
 	public function clickableHeaders($url, $column=null)
 	{
@@ -189,7 +190,12 @@ class HTMLtable
 			$head ="<a href='".$this->di->url->create($url.'/'.$column)."'>$head</a>";
 		}
 	}
-/* Single header */
+	/*****************************************
+	** function setUnifiedHeaders sets a 	**
+	** single header for all columns 		**
+	**										**
+	** @param string name of new header 	**
+	******************************************/
 	public function setUnifiedHeaders($name)
 	{
 		$this->headers =[$name];
@@ -197,7 +203,15 @@ class HTMLtable
 		$this->unifiedHeaders =true;
 	}
 
-/* Header for each row */
+	/*************************************************************
+	**  function setSeparateHeaders sets 						**
+	** header to [arbitrary name].[value of specified column]	**
+	**															**
+	** @param string name of unified header 					**
+	** @param string column whose value is to be appended		**
+	**															**
+	** return bool on fail; else void 					 		**
+	*************************************************************/
 	public function setSeparateHeaders($name, $column)
 	{
 		if(!$this->unifiedHeaders){
@@ -216,7 +230,12 @@ class HTMLtable
 		$this->separateHeaders =true;
 	}
 
-/* Print errors to table, rather than die */
+/*****************************************************
+** function setNonDisrupt prints errors to table, 	**
+** rather than die 									**
+**													**
+** @param bool 										**
+*****************************************************/
 	public function setNonDisrupt($val =true)
 	{
 		$this->nonDisrupt =$val;
@@ -236,7 +255,7 @@ class HTMLtable
 			}
 		}
 	}
-
+	/*Validate and set input array*/
 	private function setVals($array)
 	{
 		$this->colCount =$this->colCount ? $this->colCount : 0;
