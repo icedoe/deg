@@ -22,7 +22,7 @@ $app = new \Anax\Kernel\CAnax($di);
 
 
 // Home route
-$app->router->add('', function() use ($app) {
+$app->router->add('*', function() use ($app) {
 
     $app->theme->setTitle("Table tester");
 //    $app->views->add('me/page');
