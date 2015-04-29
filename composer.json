@@ -2,8 +2,7 @@
     "name": "deg/table",    
     "type": "library",
     "description": "Simple html table builder",
-    "keywords": ["html-table", "Anax", "education"],
-    "license": "MIT",
+    "keywords": ["html-table", "Anax-MVC", "education"],
     "authors": [
         {
             "name": "Martin Degerman",
@@ -15,6 +14,6 @@
         "php": ">=5.4"
     },
     "autoload": {
-        "psr-4": { "deg\\": "src/" }
+        "psr-4": { "Deg\\": "src/" }
     }
 }
