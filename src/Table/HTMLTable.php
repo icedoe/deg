@@ -109,7 +109,6 @@ class HTMLtable
 		
 		$html ='';
 		foreach($rows as $row){
-			print_r($row);
 			$html .="<tr>";
 			foreach ($row as $key => $value) {
 			//	$val =in_array($key, $this->headers) ? $value : false;
@@ -271,7 +270,7 @@ class HTMLtable
 		$this->tableVals[] =$array;
 	}
 
-/* semi fake error handler */
+/* Error handler */
 	private function msg($msg)
 	{
 		if($this->nonDisrupt){

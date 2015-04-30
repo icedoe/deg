@@ -52,8 +52,10 @@ class TableController
     	$this->di->views->add('table/table', [
             'title'     => "Table testing",
             'subtitle'  => "Basic table",
-            'code'      => '<code>$table = new HTMLTable($di, $tableVals[])<br />
-                            $table->setClass($class)</code>',
+            'code'      => '<p>Create new table:<br/>
+                            <code>$table = new HTMLTable(DI $di, array $tableVals[])</code></p>
+                            <p>Set class for style:<br/>
+                            <code>$table->setClass(string $class)</code></p>',
     		'table' =>    $this->table->getHTML(),
     		]
     	);
@@ -69,9 +71,12 @@ class TableController
 
         $this->di->views->add('table/table', [
             'subtitle'  => 'Header manip',
-            'code'      =>  '<code>$table->setUnifiedheaders($headerText)<br />
-                            $table->setSeparateHeaders($headerText, $value)<br />
-                            $table->clickableHeaders($url, $value)</code>',
+            'code'      => '<p>Set one header for all columns:<br/>
+                            <code>$table->setUnifiedheaders(string $headerText)</code></p>
+                            <p>One header per row:</br>
+                            <code>$table->setSeparateHeaders(string $headerText, string $value)</code></p>
+                            <p>Make headers clickable:</br>
+                            <code>$table->clickableHeaders(string $url, string $value)</code></p>',
             'table'     => $this->table->getHTML(),
             ]);
     }
@@ -82,7 +87,8 @@ class TableController
 
         $this->di->views->add('table/table', [
             'subtitle'  =>  'Combining columns',
-            'code'      =>  '<code>$table->combineCols($columns[], $newHeader])</code>',
+            'code'      => '<p>Combined column values will be wrapped i p-tags:</br>
+                            <code>$table->combineCols(string[] $columns, string $newHeader])</code></p>',
             'table'     =>  $this->table->getHTML(),
             ]);
     }
