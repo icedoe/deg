@@ -41,13 +41,13 @@ class HTMLTableTest extends \PHPUnit_framework_testcase
     */
     public function testConstructWith1dKeyArray()
     {
-        $this->setExpectedException('Deg\Table\TableException');
+        $this->setExpectedException('\Exception');
         $this->table = new HTMLTable(array('t' => 't', 'e' => 'e', 's' => 's', 't' => 't'));
     }
 
     public function testConstructWith1dArray()
     {
-        $this->setExpectedException('Deg\Table\TableException');
+        $this->setExpectedException('\Exception');
         $this->table = new HTMLTable(array('t', 'e', 's', 't'));
     }
 
@@ -57,7 +57,7 @@ class HTMLTableTest extends \PHPUnit_framework_testcase
      */
     public function testSetClass(){
         $this->table->setClass('table');
-        $this->setExpectedException('Deg\Table\TableException');
+        $this->setExpectedException('\Exception');
         $this->table->setClass(3);
     }
 
@@ -68,7 +68,7 @@ class HTMLTableTest extends \PHPUnit_framework_testcase
     public function testCombineCols()
     {
         $this->table->combineCols(array('col-3', 'col-4'), 'cols');
-        $this->setExpectedException('Deg\Table\TableException');
+        $this->setExpectedException('\Exception');
         $this->table->combineCols(array('col-3', 'col-4'), 'columns');
     }
 
@@ -78,7 +78,7 @@ class HTMLTableTest extends \PHPUnit_framework_testcase
      */
     public function testSeparateNonUnifiedHeaders()
     {
-        $this->setExpectedException('Deg\Table\TableException');
+        $this->setExpectedException('\Exception');
         $this->table->setSeparateHeaders('name', 'col-1');
     }
 
@@ -89,7 +89,7 @@ class HTMLTableTest extends \PHPUnit_framework_testcase
     public function testSeparateHeadersNonColVal()
     {
         $this->table->setUnifiedHeaders('name');
-        $this->setExpectedException('Deg\Table\TableException');
+        $this->setExpectedException('\Exception');
         $this->table->setSeparateHeaders('name', 'fakeCol');
     }
 
@@ -99,7 +99,7 @@ class HTMLTableTest extends \PHPUnit_framework_testcase
      */
     public function testClickableHeadersNullValue()
     {
-        $this->setExpectedException('Deg\Table\TableException');
+        $this->setExpectedException('\Exception');
 
         $this->table->setUnifiedHeaders('name');
         $this->table->setSeparateHeaders('name', 'col-1');
