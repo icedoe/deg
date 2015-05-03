@@ -33,9 +33,7 @@ class HTMLtable
  *****************************************************/
 	public function __construct($table)
 	{
-		$table =$this->chkInputArray($table);
-
-		$this->table =$table;
+		$this->chkInputArray($table);
 	}
 /*****************************************************
  ** Function getHTML 								**
