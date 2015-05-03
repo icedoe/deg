@@ -42,17 +42,15 @@ class TableController
     	$this->table =new \Deg\Table\HTMLTable($tbl);
         $this->table->setDI($this->di);
         $this->table->setClass('table');
-//        $table->setUnifiedHeaders('col-1: ', 'col-1');
-//        $table->setSeparateHeaders('col-1: ', 'col-1');
-//        $table->clickableHeaders('table', 'col-1');
-//        $this->table->combineCols(array('col-3', 'col-4'), 'cols-34');
+
 
     	$this->di->theme->setTitle('Table test');
     	$this->di->views->add('table/table', [
             'title'     => "Table testing",
             'subtitle'  => "Basic table",
             'code'      => '<p>Create new table:<br/>
-                            <code>$table = new HTMLTable(DI $di, array $tableVals[])</code></p>
+                            <code>$table = new HTMLTable(array $tableVals[])</code><br/>
+                            <code>$table->setDI(DI $di)</code></p>
                             <p>Set class for style:<br/>
                             <code>$table->setClass(string $class)</code></p>',
     		'table' =>    $this->table->getHTML(),
