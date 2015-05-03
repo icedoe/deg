@@ -5,6 +5,7 @@ php:
  
 
 before_script:
+	- composer self-update
     - wget https://scrutinizer-ci.com/ocular.phar
     - composer install
 script:
