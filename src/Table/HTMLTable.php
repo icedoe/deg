@@ -75,11 +75,11 @@ class HTMLtable
 	{
 //		try{
 			if(!is_string($class)){
-				throw new TableException("Class must be of type string. Input: ".gettype($class));
+				throw new \Exception("Class must be of type string. Input: ".gettype($class));
 			}
 			$this->class ="class='".$class."'";
 //		}
-//		catch(TableException $e){
+//		catch(\Exception $e){
 //			$this->msg($e);
 //		}
 	}
@@ -125,7 +125,7 @@ class HTMLtable
 				$init=false;
 				foreach($cols as $col){
 					if(!in_array($col, $this->headers)){
-						throw new TableException("Trying to combine non-existing col. Input: ".$col);
+						throw new \Exception("Trying to combine non-existing col. Input: ".$col);
 					}else{
 						foreach($this->headers as $key =>$val){
 							if($col == $val){
@@ -169,7 +169,7 @@ class HTMLtable
 				if($this->separateHeaders){
 					foreach($this->tableVals as $key => $val){
 						if(!isset($val[$column])){
-							throw new TableException("Trying to make null-value clickable. Missing value: $column in tableVals[$key]");
+							throw new \Exception("Trying to make null-value clickable. Missing value: $column in tableVals[$key]");
 						}
 						$this->headers[$key] = "<a href='".$this->di->url->create($url.'/'.$val[$column])."'>".$this->headers[$key]."</a>";
 					}
@@ -209,12 +209,12 @@ class HTMLtable
 	{
 	
 			if(!$this->unifiedHeaders){
-				throw new TableException("Separate headers must be unified");
+				throw new \Exception("Separate headers must be unified");
 			}
 			$this->headers=[];
 			foreach($this->tableVals as $key => $val){
 				if(!in_array($column, array_keys($val))){
-					throw new TableException("Unified separate header in tableVals must be column value. Input: $column");
+					throw new \Exception("Unified separate header in tableVals must be column value. Input: $column");
 				}
 				$this->headers[] =$name.$this->tableVals[$key][$column];
 
@@ -229,11 +229,11 @@ class HTMLtable
 	{
 	
 			if(!is_array($array) || !isset($array[0])){
-				throw new TableException('Input must be indexed array. Input: '.gettype($array).'.');
+				throw new \Exception('Input must be indexed array. Input: '.gettype($array).'.');
 			}else{
 				foreach($array as $sub){
 					if(!is_array($sub) && !is_object($sub)){
-						throw new TableException('Valid row-matter is array or object. Input: '.gettype($sub));
+						throw new \Exception('Valid row-matter is array or object. Input: '.gettype($sub));
 					} else {
 						$this->setVals($sub);
 					}
