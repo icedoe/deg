@@ -12,15 +12,13 @@ class HTMLtable
 {
 	use \Anax\DI\TInjectionAware;
 
-//	private $di;
+	private $di;
 	private $headers;
 	private $tableVals;
 	private $colCount;
 	private $unifiedHeaders;
 	private $separateHeaders;
-	private $nonDisrupt;
 	private $colspan;
-	private $errMsg;
 	private $class;
 
 
@@ -38,7 +36,7 @@ class HTMLtable
 /*****************************************************
  ** Function getHTML 								**
  **													**
- ** @return HTML-table(s)							**
+ ** @return string HTML-table(s)					**
  **													**
  *****************************************************/
 	public function getHTML()
@@ -73,15 +71,10 @@ class HTMLtable
  *****************************************************/
 	public function setClass($class)
 	{
-//		try{
 			if(!is_string($class)){
 				throw new \Exception("Class must be of type string. Input: ".gettype($class));
 			}
 			$this->class ="class='".$class."'";
-//		}
-//		catch(\Exception $e){
-//			$this->msg($e);
-//		}
 	}
 
 /*Helpers for getHTML*/
@@ -132,7 +125,7 @@ class HTMLtable
 								$tmp =$key;
 							}
 						}
-						if(!$init){
+						if(!$init && isset($tmp)){
 							$this->headers[$tmp] =$name;
 							foreach($this->tableVals as $key => $vals){
 								$this->tableVals[$key][$name] = isset($vals[$col]) ? "<p>".$vals[$col]."</p>" : '';
@@ -140,7 +133,7 @@ class HTMLtable
 							}
 
 							$init=true;
-						}else{
+						}elseif(isset($tmp)){
 							unset($this->headers[$tmp]);
 							foreach($this->tableVals as $key => $vals){
 								$this->tableVals[$key][$name] .=isset($vals[$col]) ? "<p>".$vals[$col]."</p>" : '';
