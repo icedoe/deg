@@ -3,7 +3,7 @@
 
 namespace Deg\Table;
 
-include(__DIR__.'/../config.php');
+//include(__DIR__.'/../config.php');
 
 /* Unit testing HTMLTable */
 class HTMLTableTest extends \PHPUnit_framework_testcase
