@@ -12,7 +12,6 @@ class HTMLtable
 {
 	use \Anax\DI\TInjectionAware;
 
-	private $di;
 	private $headers;
 	private $tableVals;
 	private $colCount;
