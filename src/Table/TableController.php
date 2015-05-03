@@ -12,8 +12,6 @@ class TableController
 
     private $table;
 
-    public function setDI($di)
-    {$this->di =$di;}
     /**
      * Index action.
      *
@@ -41,7 +39,8 @@ class TableController
     			'col-4' =>	'test34'
     		],
     	];
-    	$this->table =new \Deg\Table\HTMLTable($this->di, $tbl);
+    	$this->table =new \Deg\Table\HTMLTable($tbl);
+        $this->table->setDI($this->di);
         $this->table->setClass('table');
 //        $table->setUnifiedHeaders('col-1: ', 'col-1');
 //        $table->setSeparateHeaders('col-1: ', 'col-1');

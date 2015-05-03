@@ -1,0 +1,68 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "817a30737291290086991575d8ef20b1",
+    "packages": [
+        {
+            "name": "anax/mvc",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mosbth/Anax-MVC.git",
+                "reference": "bdaf353aaffffbb20fbe7409cd67377654ce9c58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mosbth/Anax-MVC/zipball/bdaf353aaffffbb20fbe7409cd67377654ce9c58",
+                "reference": "bdaf353aaffffbb20fbe7409cd67377654ce9c58",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Anax\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mikael Roos",
+                    "email": "me@mikaelroos.se",
+                    "homepage": "http://mikaelroos.se",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Webtemplate to create websites",
+            "homepage": "http://dbwebb.se",
+            "keywords": [
+                "boilerplate",
+                "education",
+                "framework",
+                "micro",
+                "mvc"
+            ],
+            "time": "2015-04-04 22:51:10"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "anax/mvc": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.4"
+    },
+    "platform-dev": []
+}
