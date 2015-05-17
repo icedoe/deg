@@ -9,16 +9,18 @@ This package is posted on Packagist as deg/table.
 
 To install using composer, add this to your composer.json.
 
-{
+```{
     "require": {
         "deg/table": "dev-master"
     }
 }
+```
 
 Install with commands:
 
-composer validate
+```composer validate
 composer install --no-dev
+```
 
 If all's well, you'll find the package in your vendor directory.
 
